@@ -1,1 +1,90 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
+int main(){
+    printf("TUGAS MUHAMMAD JAUHARI");
+    printf("NIM:12250510997");
+    int a=1, b=1, pilihan, tabungan = 0, nominal=0, noTujuan = 0;
+    char nm[5], pw[5];
+
+    while(a == 1){
+        printf("\n ---------- APLIKASI BANK ----------");
+        printf("\n Username :");
+        scanf("%s",&nm);
+        printf("\n Password :");
+        scanf("%s",&pw);
+        printf("\n -----------------------------------");
+            if ( (strcmp(nm,"jojo")==0) && (strcmp(pw,"12345")==0) ) {
+                printf("\n SELAMAT DATANG DI BANK BANG JO.\n \n");
+                a = 0;
+            } else {
+                printf("\n  Login anda Gagal. username dan salah. \n \n");
+            }
+        system("pause");
+        system("cls");
+    }
+
+    while (b == 1) {
+        printf("\n -------------- $MENU BANK$---------------");
+        printf("\n 1. Penyetoran");
+        printf("\n 2. Penarikan");        
+        printf("\n 3. Cek Saldo");        
+        printf("\n 4. Transaksi");       
+        printf("\n 5. Keluar");        
+        printf("\n -----------------------------------");              printf("\n masukan pilihan(1-5) : ");                    scanf("%d",&pilihan);        
+switch(pilihan){            
+case 1:                
+printf("\n ----------- PENYETORAN BANK -----------");                printf("\n Masukkan nominal yang diinginkan :");
+                scanf("%d",&nominal);                tabungan = tabungan + nominal;                printf("\n Penyetoran anda Berhasil \n\n");
+                printf("\n -----------------------------------\n");
+            break;
+
+            case 2:
+                printf("\n ------------ PENARIKAN BANK ------------");
+                printf("\n Masukkan nominal :");
+                scanf("%d",&nominal);
+                if(tabungan>nominal){
+                    tabungan = tabungan - nominal;
+                    printf("Penarikan anda Berhasil \n \n");
+                } else {
+                    printf("\n Penarikan anda Gagal \n \n");
+                }
+                printf("\n -----------------------------------\n");
+            break;
+
+            case 3:
+                printf("\n ------------ CEK SALDO BANK ------------");
+                printf("\n Saldo Anda : %d,-",tabungan);
+                printf("\n ----------------------------------- \n \n");
+            break;
+
+            case 4:
+                printf("\n ------------ TRANSAKSI BANK ------------");
+                printf("\n Masukan nomor tujuan :");
+                scanf("%d", &noTujuan);
+                printf("\n Masukan nominal:");
+                scanf("%d", &nominal);
+
+                if(tabungan <= nominal){
+                    printf("\n INFO: Saldo tidak mencukupi. \n");
+                } else {
+                    tabungan = tabungan - nominal;
+                    printf("\n INFO: pengiriman ke nomor %d, sebesar %d Berhasil.", (noTujuan), (nominal));
+                }
+                printf("\n ----------------------------------- \n \n");
+            break;
+
+            case 5:
+                printf("\n ---------- TERIMA KASIH  DAN SAMPAI JUMPA-----------");
+                exit(0);
+            break;
+
+            default:
+                printf("\n Input yang anda masukan salah \n");
+            break;
+        }
+        system("pause");
+        system("cls");
+    }
+}
